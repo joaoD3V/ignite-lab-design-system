@@ -4,6 +4,11 @@ import { within, userEvent, waitFor } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 import { SignIn } from './SignIn';
 
+const path =
+  process.env.NODE_ENV === 'development'
+    ? '/sessions'
+    : '/ignite-lab-design-system/sessions';
+
 export default {
   title: 'Pages/SignIn',
   component: SignIn,
@@ -14,7 +19,7 @@ export default {
   parameters: {
     msw: {
       handlers: [
-        rest.post('/sessions', (req, res, ctx) => {
+        rest.post(path, (req, res, ctx) => {
           return res(
             ctx.json({
               message: 'Login realizado!',

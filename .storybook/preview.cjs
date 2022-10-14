@@ -6,7 +6,7 @@ import '../src/styles/global.css';
 
 // Initialize MSW
 initialize({
-  onUnhandledRequest: 'bypass'
+  onUnhandledRequest: 'bypass',
 });
 
 // Provide the MSW addon decorator globally
