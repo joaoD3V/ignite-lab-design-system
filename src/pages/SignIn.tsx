@@ -15,10 +15,14 @@ export function SignIn() {
   async function handleSignIn(e: FormEvent) {
     e.preventDefault();
 
-    await axios.post('/sessions', {
-      email: 'joao.devweb@gmail.com',
-      password: '12345678',
-    });
+    await axios
+      .post('/sessions', {
+        email: 'joao.devweb@gmail.com',
+        password: '12345678',
+      })
+      .catch(() =>
+        console.error('Rota não existente, apenas para teste do storybook.')
+      );
 
     setIsUserSignedIn(true);
   }
